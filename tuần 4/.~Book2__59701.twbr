@@ -1,0 +1,2441 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20231.23.0511.1508                               -->
+<workbook original-version='18.1' source-build='2023.1.2 (20231.23.0511.1508)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Nghd (group) Parameter' datatype='string' name='[Nghd (group) Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;2007-01-01&quot;'>
+        <calculation class='tableau' formula='&quot;2007-01-01&quot;' />
+        <members>
+          <member value='&quot;2007-01-01&quot;' />
+          <member value='&quot;2007-01-02&quot;' />
+          <member value='&quot;2007-01-13&quot;' />
+          <member value='&quot;2007-01-14&quot;' />
+          <member value='&quot;2007-01-16&quot;' />
+          <member value='&quot;2007-01-17&quot;' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='QUANLYBANHANG' inline='true' name='federated.1v2g2mi1tn09m31363ax21pzwddq' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='QUANLYBANHANG' name='excel-direct.07j26ds0hz0hm415p3gqm07llxoj'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='/Users/macbook/Documents/thuchanh/in4man thuchanh/tuần 4/QUANLYBANHANG.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='excel-direct.07j26ds0hz0hm415p3gqm07llxoj' name='CTHD' table='[CTHD$]' type='table'>
+          <columns gridOrigin='A1:C46:no:A1:C46:0' header='yes' outcome='2'>
+            <column datatype='integer' name='SOHD' ordinal='0' />
+            <column datatype='string' name='MASP' ordinal='1' />
+            <column datatype='integer' name='SL' ordinal='2' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation join='full' type='join'>
+            <clause type='join'>
+              <expression op='='>
+                <expression op='[NHANVIEN].[MANV]' />
+                <expression op='[HOADON].[MANV]' />
+              </expression>
+            </clause>
+            <relation connection='excel-direct.07j26ds0hz0hm415p3gqm07llxoj' name='NHANVIEN' table='[NHANVIEN$]' type='table'>
+              <columns gridOrigin='A1:D6:no:A1:D6:0' header='yes' outcome='2'>
+                <column datatype='string' name='MANV' ordinal='0' />
+                <column datatype='string' name='HOTEN' ordinal='1' />
+                <column datatype='string' name='SODT' ordinal='2' />
+                <column datatype='date' name='NGVL' ordinal='3' />
+              </columns>
+            </relation>
+            <relation connection='excel-direct.07j26ds0hz0hm415p3gqm07llxoj' name='HOADON' table='[HOADON$]' type='table'>
+              <columns gridOrigin='A1:E24:no:A1:E24:0' header='yes' outcome='2'>
+                <column datatype='integer' name='SOHD' ordinal='0' />
+                <column datatype='date' name='NGHD' ordinal='1' />
+                <column datatype='string' name='MAKH' ordinal='2' />
+                <column datatype='string' name='MANV' ordinal='3' />
+                <column datatype='integer' name='TRIGIA' ordinal='4' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='excel-direct.07j26ds0hz0hm415p3gqm07llxoj' name='CTHD' table='[CTHD$]' type='table'>
+            <columns gridOrigin='A1:C46:no:A1:C46:0' header='yes' outcome='2'>
+              <column datatype='integer' name='SOHD' ordinal='0' />
+              <column datatype='string' name='MASP' ordinal='1' />
+              <column datatype='integer' name='SL' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.07j26ds0hz0hm415p3gqm07llxoj' name='SANPHAM ' table='[&apos;SANPHAM $&apos;]' type='table'>
+            <columns gridOrigin='A1:E25:no:A1:E25:0' header='yes' outcome='2'>
+              <column datatype='string' name='MASP' ordinal='0' />
+              <column datatype='string' name='TENSP' ordinal='1' />
+              <column datatype='string' name='DVT' ordinal='2' />
+              <column datatype='string' name='NUOCSX' ordinal='3' />
+              <column datatype='integer' name='GIA' ordinal='4' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[DVT]' value='[SANPHAM ].[DVT]' />
+          <map key='[GIA]' value='[SANPHAM ].[GIA]' />
+          <map key='[HOTEN]' value='[NHANVIEN].[HOTEN]' />
+          <map key='[MAKH]' value='[HOADON].[MAKH]' />
+          <map key='[MANV (HOADON)]' value='[HOADON].[MANV]' />
+          <map key='[MANV]' value='[NHANVIEN].[MANV]' />
+          <map key='[MASP (SANPHAM )]' value='[SANPHAM ].[MASP]' />
+          <map key='[MASP]' value='[CTHD].[MASP]' />
+          <map key='[NGHD]' value='[HOADON].[NGHD]' />
+          <map key='[NGVL]' value='[NHANVIEN].[NGVL]' />
+          <map key='[NUOCSX]' value='[SANPHAM ].[NUOCSX]' />
+          <map key='[SL]' value='[CTHD].[SL]' />
+          <map key='[SODT]' value='[NHANVIEN].[SODT]' />
+          <map key='[SOHD (CTHD)]' value='[CTHD].[SOHD]' />
+          <map key='[SOHD]' value='[HOADON].[SOHD]' />
+          <map key='[TENSP]' value='[SANPHAM ].[TENSP]' />
+          <map key='[TRIGIA]' value='[HOADON].[TRIGIA]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[NHANVIEN]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D6:no:A1:D6:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[HOADON]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E24:no:A1:E24:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[CTHD]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C46:no:A1:C46:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[SANPHAM ]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E25:no:A1:E25:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MANV</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[MANV]</local-name>
+            <parent-name>[NHANVIEN]</parent-name>
+            <remote-alias>MANV</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HOTEN</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[HOTEN]</local-name>
+            <parent-name>[NHANVIEN]</parent-name>
+            <remote-alias>HOTEN</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SODT</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[SODT]</local-name>
+            <parent-name>[NHANVIEN]</parent-name>
+            <remote-alias>SODT</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NGVL</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[NGVL]</local-name>
+            <parent-name>[NHANVIEN]</parent-name>
+            <remote-alias>NGVL</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SOHD</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SOHD]</local-name>
+            <parent-name>[HOADON]</parent-name>
+            <remote-alias>SOHD</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NGHD</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[NGHD]</local-name>
+            <parent-name>[HOADON]</parent-name>
+            <remote-alias>NGHD</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MAKH</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[MAKH]</local-name>
+            <parent-name>[HOADON]</parent-name>
+            <remote-alias>MAKH</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MANV</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[MANV (HOADON)]</local-name>
+            <parent-name>[HOADON]</parent-name>
+            <remote-alias>MANV</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TRIGIA</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[TRIGIA]</local-name>
+            <parent-name>[HOADON]</parent-name>
+            <remote-alias>TRIGIA</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SOHD</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SOHD (CTHD)]</local-name>
+            <parent-name>[CTHD]</parent-name>
+            <remote-alias>SOHD</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[CTHD_89DE40E4AC2F495880369BD09AB2DA2C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MASP</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[MASP]</local-name>
+            <parent-name>[CTHD]</parent-name>
+            <remote-alias>MASP</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[CTHD_89DE40E4AC2F495880369BD09AB2DA2C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SL</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SL]</local-name>
+            <parent-name>[CTHD]</parent-name>
+            <remote-alias>SL</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[CTHD_89DE40E4AC2F495880369BD09AB2DA2C]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MASP</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[MASP (SANPHAM )]</local-name>
+            <parent-name>[SANPHAM ]</parent-name>
+            <remote-alias>MASP</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SANPHAM _818FA8FDF3E84FC7AAB5D90103124FC3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TENSP</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[TENSP]</local-name>
+            <parent-name>[SANPHAM ]</parent-name>
+            <remote-alias>TENSP</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SANPHAM _818FA8FDF3E84FC7AAB5D90103124FC3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DVT</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[DVT]</local-name>
+            <parent-name>[SANPHAM ]</parent-name>
+            <remote-alias>DVT</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SANPHAM _818FA8FDF3E84FC7AAB5D90103124FC3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NUOCSX</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[NUOCSX]</local-name>
+            <parent-name>[SANPHAM ]</parent-name>
+            <remote-alias>NUOCSX</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SANPHAM _818FA8FDF3E84FC7AAB5D90103124FC3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GIA</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[GIA]</local-name>
+            <parent-name>[SANPHAM ]</parent-name>
+            <remote-alias>GIA</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SANPHAM _818FA8FDF3E84FC7AAB5D90103124FC3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='trigia' datatype='integer' name='[Calculation_2190930880930689059]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IFNULL(SUM([TRIGIA]),0)' />
+      </column>
+      <column caption='NV - HO TEN' datatype='string' name='[Calculation_2190930881193373746]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[MANV] + &quot; - &quot; + [HOTEN]' />
+      </column>
+      <column caption='DOANHTHU 2006' datatype='integer' name='[Calculation_2190930881219543093]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Nghd (group)] = &quot;2006&quot; THEN [SL]*[GIA] + 0 END' />
+      </column>
+      <column caption='DOANHTHU 2007' datatype='integer' name='[Calculation_2190930881225568314]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Nghd (group) 1] = &quot;2007&quot; THEN [SL]*[GIA] END' />
+      </column>
+      <column caption='DOANHTHU 2006&amp;2007' datatype='integer' name='[Calculation_2190930881228841022]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[SL]*[GIA]' />
+      </column>
+      <column caption='STT' datatype='integer' name='[Calculation_2190930881584664649]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='INDEX()'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Hoten' datatype='string' name='[HOTEN]' role='dimension' type='nominal' />
+      <column caption='Makh' datatype='string' name='[MAKH]' role='dimension' type='nominal' />
+      <column caption='Manv (Hoadon)' datatype='string' name='[MANV (HOADON)]' role='dimension' type='nominal' />
+      <column caption='Manv' datatype='string' name='[MANV]' role='dimension' type='nominal' />
+      <column caption='Masp (Sanpham )' datatype='string' name='[MASP (SANPHAM )]' role='dimension' type='nominal' />
+      <column caption='Masp' datatype='string' name='[MASP]' role='dimension' type='nominal' />
+      <column caption='Nghd' datatype='date' name='[NGHD]' role='dimension' type='ordinal' />
+      <column caption='Ngvl' datatype='date' name='[NGVL]' role='dimension' type='ordinal' />
+      <column caption='Nuocsx' datatype='string' name='[NUOCSX]' role='dimension' type='nominal' />
+      <column datatype='string' name='[Nghd (group) 1]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[NGHD]' new-bin='true'>
+          <bin default-name='false' value='&quot;2007&quot;'>
+            <value>#2007-01-01#</value>
+            <value>#2007-01-02#</value>
+            <value>#2007-01-13#</value>
+            <value>#2007-01-14#</value>
+            <value>#2007-01-16#</value>
+            <value>#2007-01-17#</value>
+          </bin>
+        </calculation>
+      </column>
+      <column datatype='string' name='[Nghd (group)]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[NGHD]' new-bin='true'>
+          <bin default-name='false' value='&quot;2006&quot;'>
+            <value>#2006-07-23#</value>
+            <value>#2006-08-12#</value>
+            <value>#2006-08-23#</value>
+            <value>#2006-09-01#</value>
+            <value>#2006-10-16#</value>
+            <value>#2006-10-20#</value>
+            <value>#2006-10-28#</value>
+            <value>#2006-11-01#</value>
+            <value>#2006-11-04#</value>
+            <value>#2006-11-30#</value>
+            <value>#2006-12-12#</value>
+            <value>#2006-12-31#</value>
+          </bin>
+        </calculation>
+      </column>
+      <column caption='Sodt' datatype='string' name='[SODT]' role='dimension' type='nominal' />
+      <column caption='Sohd (Cthd)' datatype='integer' name='[SOHD (CTHD)]' role='measure' type='quantitative' />
+      <column caption='Sohd' datatype='integer' name='[SOHD]' role='measure' type='quantitative' />
+      <column caption='Tensp' datatype='string' name='[TENSP]' role='dimension' type='nominal' />
+      <column caption='Trigia' datatype='integer' name='[TRIGIA]' role='measure' type='quantitative' />
+      <column caption='DOANH THU (TRIỆU ĐỒNG)' datatype='integer' name='[Trigia (copy)_2190930880945397809]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[TRIGIA]' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='CTHD' datatype='table' name='[__tableau_internal_object_id__].[CTHD_89DE40E4AC2F495880369BD09AB2DA2C]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='NHANVIEN' datatype='table' name='[__tableau_internal_object_id__].[NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='SANPHAM ' datatype='table' name='[__tableau_internal_object_id__].[SANPHAM _818FA8FDF3E84FC7AAB5D90103124FC3]' role='measure' type='quantitative' />
+      <column-instance column='[NGHD]' derivation='Month' name='[mn:NGHD:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[HOTEN]' derivation='None' name='[none:HOTEN:nk]' pivot='key' type='nominal' />
+      <column-instance column='[MASP (SANPHAM )]' derivation='None' name='[none:MASP (SANPHAM ):nk]' pivot='key' type='nominal' />
+      <group hidden='true' name='[Exclusions (Hoten,MONTH(Nghd))]' name-style='unqualified' user:auto-column='exclude'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:HOTEN:nk]' />
+          <groupfilter function='level-members' level='[mn:NGHD:ok]' />
+        </groupfilter>
+      </group>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' _.fcp.SchemaViewerObjectModel.true...common-percentage='0.964006' _.fcp.SchemaViewerObjectModel.true...user-set-layout-v2='true' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.0359937' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:HOTEN:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Nguyen Van B&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Nguyen Nhu Nhut&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Ngo Thanh Tuan&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Nguyen Thi Truc Thanh&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Le Thi Phi Yen&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:MASP (SANPHAM ):nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;ST02&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;BB01&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;TV04&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;BC02&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;ST06&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;ST03&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;BC03&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;TV02&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;BB02&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;TV05&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;ST10&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;BC04&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;ST07&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;ST08&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;TV01&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;TV03&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;ST04&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;ST01&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;BB03&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;TV06&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;ST09&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;ST05&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;BC01&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;TV07&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='MASP (SANPHAM )' />
+        <field-sort-custom-order field='Calculation_2190930881221750840' />
+        <field-sort-custom-order field='TENSP' />
+        <field-sort-custom-order field='Calculation_2190930881584664649' />
+        <field-sort-custom-order field='DVT' />
+        <field-sort-custom-order field='NUOCSX' />
+        <field-sort-custom-order field='GIA' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='CTHD' id='CTHD_89DE40E4AC2F495880369BD09AB2DA2C'>
+            <properties context=''>
+              <relation connection='excel-direct.07j26ds0hz0hm415p3gqm07llxoj' name='CTHD' table='[CTHD$]' type='table'>
+                <columns gridOrigin='A1:C46:no:A1:C46:0' header='yes' outcome='2'>
+                  <column datatype='integer' name='SOHD' ordinal='0' />
+                  <column datatype='string' name='MASP' ordinal='1' />
+                  <column datatype='integer' name='SL' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='NHANVIEN' id='NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7'>
+            <properties context=''>
+              <relation join='full' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[NHANVIEN].[MANV]' />
+                    <expression op='[HOADON].[MANV]' />
+                  </expression>
+                </clause>
+                <relation connection='excel-direct.07j26ds0hz0hm415p3gqm07llxoj' name='NHANVIEN' table='[NHANVIEN$]' type='table'>
+                  <columns gridOrigin='A1:D6:no:A1:D6:0' header='yes' outcome='2'>
+                    <column datatype='string' name='MANV' ordinal='0' />
+                    <column datatype='string' name='HOTEN' ordinal='1' />
+                    <column datatype='string' name='SODT' ordinal='2' />
+                    <column datatype='date' name='NGVL' ordinal='3' />
+                  </columns>
+                </relation>
+                <relation connection='excel-direct.07j26ds0hz0hm415p3gqm07llxoj' name='HOADON' table='[HOADON$]' type='table'>
+                  <columns gridOrigin='A1:E24:no:A1:E24:0' header='yes' outcome='2'>
+                    <column datatype='integer' name='SOHD' ordinal='0' />
+                    <column datatype='date' name='NGHD' ordinal='1' />
+                    <column datatype='string' name='MAKH' ordinal='2' />
+                    <column datatype='string' name='MANV' ordinal='3' />
+                    <column datatype='integer' name='TRIGIA' ordinal='4' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+          </object>
+          <object caption='SANPHAM ' id='SANPHAM _818FA8FDF3E84FC7AAB5D90103124FC3'>
+            <properties context=''>
+              <relation connection='excel-direct.07j26ds0hz0hm415p3gqm07llxoj' name='SANPHAM ' table='[&apos;SANPHAM $&apos;]' type='table'>
+                <columns gridOrigin='A1:E25:no:A1:E25:0' header='yes' outcome='2'>
+                  <column datatype='string' name='MASP' ordinal='0' />
+                  <column datatype='string' name='TENSP' ordinal='1' />
+                  <column datatype='string' name='DVT' ordinal='2' />
+                  <column datatype='string' name='NUOCSX' ordinal='3' />
+                  <column datatype='integer' name='GIA' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[SOHD]' />
+              <expression op='[SOHD (CTHD)]' />
+            </expression>
+            <first-end-point object-id='NHANVIEN_954413DEB1EA4981B4E11FCEC22538B7' />
+            <second-end-point object-id='CTHD_89DE40E4AC2F495880369BD09AB2DA2C' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[MASP]' />
+              <expression op='[MASP (SANPHAM )]' />
+            </expression>
+            <first-end-point object-id='CTHD_89DE40E4AC2F495880369BD09AB2DA2C' />
+            <second-end-point object-id='SANPHAM _818FA8FDF3E84FC7AAB5D90103124FC3' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+    <datasource caption='QLDT' inline='true' name='federated.0yoc0ye1pjime713s8pir1c50xar' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='SINHVIEN' name='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9'>
+            <connection class='excel-direct' cleaning='yes' compat='no' dataRefreshTime='' filename='/Users/macbook/Documents/thuchanh/in4man thuchanh/tuần 4/SINHVIEN.xlsx' interpretationMode='1' password='' server='' validate='no' />
+          </named-connection>
+          <named-connection caption='QUANLYBANHANG' name='excel-direct.1pyjb8n0c8rhpx1fkvumq1q2mpt7'>
+            <connection class='excel-direct' cleaning='yes' compat='no' dataRefreshTime='' filename='/Users/macbook/Documents/thuchanh/in4man thuchanh/tuần 4/QUANLYBANHANG.xlsx' interpretationMode='1' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='DETAI' table='[DETAI$]' type='table'>
+          <columns gridOrigin='A1:B7:no:A1:B7:1' header='yes' lost='0' outcome='1' processed='6'>
+            <column datatype='integer' name='MSDT' ordinal='0' />
+            <column datatype='string' name='TENDT' ordinal='1' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation type='collection'>
+          <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='SINHVIEN' table='[SINHVIEN$]' type='table'>
+            <columns gridOrigin='A1:E7:no:A1:E7:1' header='yes' lost='0' outcome='1' processed='12'>
+              <column datatype='integer' name='MSSV' ordinal='0' />
+              <column datatype='string' name='TENSV' ordinal='1' />
+              <column datatype='integer' name='SODT' ordinal='2' />
+              <column datatype='string' name='LOP' ordinal='3' />
+              <column datatype='string' name='DIACHI' ordinal='4' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='SV_DT' table='[SV_DT$]' type='table'>
+            <columns gridOrigin='A1:B6:no:A1:B6:1' header='yes' lost='0' outcome='1' processed='10'>
+              <column datatype='integer' name='MSSV' ordinal='0' />
+              <column datatype='integer' name='MSDT' ordinal='1' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='DETAI' table='[DETAI$]' type='table'>
+            <columns gridOrigin='A1:B7:no:A1:B7:1' header='yes' lost='0' outcome='1' processed='6'>
+              <column datatype='integer' name='MSDT' ordinal='0' />
+              <column datatype='string' name='TENDT' ordinal='1' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='UVDT' table='[UVDT$]' type='table'>
+            <columns gridOrigin='A1:C19:no:A1:C19:1' lost='0' outcome='1' processed='54'>
+              <column datatype='integer' name='MSGV' ordinal='0' />
+              <column datatype='integer' name='MSDT' ordinal='1' />
+              <column datatype='integer' name='DIEM' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='GIAOVIEN' table='[GIAOVIEN$]' type='table'>
+            <columns gridOrigin='A1:F6:no:A1:F6:1' lost='0' outcome='1' processed='20'>
+              <column datatype='integer' name='MSGV' ordinal='0' />
+              <column datatype='string' name='TENGV' ordinal='1' />
+              <column datatype='string' name='DIACHI' ordinal='2' />
+              <column datatype='integer' name='SODT' ordinal='3' />
+              <column datatype='integer' name='MSHH' ordinal='4' />
+              <column datatype='date' name='NAMHH' ordinal='5' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[DIACHI (GIAOVIEN)]' value='[GIAOVIEN].[DIACHI]' />
+          <map key='[DIACHI]' value='[SINHVIEN].[DIACHI]' />
+          <map key='[DIEM]' value='[UVDT].[DIEM]' />
+          <map key='[LOP]' value='[SINHVIEN].[LOP]' />
+          <map key='[MSDT (DETAI)]' value='[DETAI].[MSDT]' />
+          <map key='[MSDT (UVDT)]' value='[UVDT].[MSDT]' />
+          <map key='[MSDT]' value='[SV_DT].[MSDT]' />
+          <map key='[MSGV (GIAOVIEN)]' value='[GIAOVIEN].[MSGV]' />
+          <map key='[MSGV]' value='[UVDT].[MSGV]' />
+          <map key='[MSHH]' value='[GIAOVIEN].[MSHH]' />
+          <map key='[MSSV (SV!DT)]' value='[SV_DT].[MSSV]' />
+          <map key='[MSSV]' value='[SINHVIEN].[MSSV]' />
+          <map key='[NAMHH]' value='[GIAOVIEN].[NAMHH]' />
+          <map key='[SODT (GIAOVIEN)]' value='[GIAOVIEN].[SODT]' />
+          <map key='[SODT]' value='[SINHVIEN].[SODT]' />
+          <map key='[TENDT]' value='[DETAI].[TENDT]' />
+          <map key='[TENGV]' value='[GIAOVIEN].[TENGV]' />
+          <map key='[TENSV]' value='[SINHVIEN].[TENSV]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[SINHVIEN]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E7:no:A1:E7:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>12</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[SV_DT]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B6:no:A1:B6:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>10</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[DETAI]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B7:no:A1:B7:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[UVDT]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C19:no:A1:C19:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>54</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[GIAOVIEN]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:F6:no:A1:F6:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>20</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MSSV</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MSSV]</local-name>
+            <parent-name>[SINHVIEN]</parent-name>
+            <remote-alias>MSSV</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SINHVIEN_6E37CE939EFC43B39BF6BD3C9D699146]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TENSV</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[TENSV]</local-name>
+            <parent-name>[SINHVIEN]</parent-name>
+            <remote-alias>TENSV</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SINHVIEN_6E37CE939EFC43B39BF6BD3C9D699146]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SODT</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SODT]</local-name>
+            <parent-name>[SINHVIEN]</parent-name>
+            <remote-alias>SODT</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SINHVIEN_6E37CE939EFC43B39BF6BD3C9D699146]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>LOP</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[LOP]</local-name>
+            <parent-name>[SINHVIEN]</parent-name>
+            <remote-alias>LOP</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SINHVIEN_6E37CE939EFC43B39BF6BD3C9D699146]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DIACHI</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[DIACHI]</local-name>
+            <parent-name>[SINHVIEN]</parent-name>
+            <remote-alias>DIACHI</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SINHVIEN_6E37CE939EFC43B39BF6BD3C9D699146]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MSSV</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MSSV (SV!DT)]</local-name>
+            <parent-name>[SV_DT]</parent-name>
+            <remote-alias>MSSV</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SV!DT_3A18CF3BAFD6409DB523DB154B23B8B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MSDT</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MSDT]</local-name>
+            <parent-name>[SV_DT]</parent-name>
+            <remote-alias>MSDT</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[SV!DT_3A18CF3BAFD6409DB523DB154B23B8B1]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MSDT</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MSDT (DETAI)]</local-name>
+            <parent-name>[DETAI]</parent-name>
+            <remote-alias>MSDT</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[DETAI_A078F1A7FFF14B38B7932DDD0E7D1904]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TENDT</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[TENDT]</local-name>
+            <parent-name>[DETAI]</parent-name>
+            <remote-alias>TENDT</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[DETAI_A078F1A7FFF14B38B7932DDD0E7D1904]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MSGV</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MSGV]</local-name>
+            <parent-name>[UVDT]</parent-name>
+            <remote-alias>MSGV</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[UVDT_8843879AB8294C65A69CB597A0E0CAFF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MSDT</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MSDT (UVDT)]</local-name>
+            <parent-name>[UVDT]</parent-name>
+            <remote-alias>MSDT</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[UVDT_8843879AB8294C65A69CB597A0E0CAFF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DIEM</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[DIEM]</local-name>
+            <parent-name>[UVDT]</parent-name>
+            <remote-alias>DIEM</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[UVDT_8843879AB8294C65A69CB597A0E0CAFF]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MSGV</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MSGV (GIAOVIEN)]</local-name>
+            <parent-name>[GIAOVIEN]</parent-name>
+            <remote-alias>MSGV</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[GIAOVIEN_21A5C782139549DAB741884B78B75AD6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>TENGV</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[TENGV]</local-name>
+            <parent-name>[GIAOVIEN]</parent-name>
+            <remote-alias>TENGV</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[GIAOVIEN_21A5C782139549DAB741884B78B75AD6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>DIACHI</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[DIACHI (GIAOVIEN)]</local-name>
+            <parent-name>[GIAOVIEN]</parent-name>
+            <remote-alias>DIACHI</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[GIAOVIEN_21A5C782139549DAB741884B78B75AD6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SODT</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[SODT (GIAOVIEN)]</local-name>
+            <parent-name>[GIAOVIEN]</parent-name>
+            <remote-alias>SODT</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[GIAOVIEN_21A5C782139549DAB741884B78B75AD6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>MSHH</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[MSHH]</local-name>
+            <parent-name>[GIAOVIEN]</parent-name>
+            <remote-alias>MSHH</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[GIAOVIEN_21A5C782139549DAB741884B78B75AD6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>NAMHH</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[NAMHH]</local-name>
+            <parent-name>[GIAOVIEN]</parent-name>
+            <remote-alias>NAMHH</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[GIAOVIEN_21A5C782139549DAB741884B78B75AD6]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='STT' datatype='integer' name='[Calculation_2190930880592556043]' role='measure' type='ordinal'>
+        <calculation class='tableau' formula='INDEX()'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Diachi (Giaovien)' datatype='string' name='[DIACHI (GIAOVIEN)]' role='dimension' type='nominal' />
+      <column caption='ĐỊA CHỈ' datatype='string' name='[DIACHI]' role='dimension' type='nominal' />
+      <column caption='Diem' datatype='integer' name='[DIEM]' role='measure' type='quantitative' />
+      <column caption='LỚP' datatype='string' name='[LOP]' role='dimension' type='nominal' />
+      <column caption='Msdt (Detai)' datatype='integer' name='[MSDT (DETAI)]' role='dimension' type='ordinal' />
+      <column caption='Msdt (Uvdt)' datatype='integer' name='[MSDT (UVDT)]' role='measure' type='quantitative' />
+      <column caption='Msdt' datatype='integer' name='[MSDT]' role='dimension' type='ordinal' />
+      <column caption='Msgv (Giaovien)' datatype='integer' name='[MSGV (GIAOVIEN)]' role='measure' type='quantitative' />
+      <column caption='Msgv' datatype='integer' name='[MSGV]' role='measure' type='quantitative' />
+      <column caption='Mshh' datatype='integer' name='[MSHH]' role='measure' type='quantitative' />
+      <column caption='Mssv (Sv!Dt)' datatype='integer' name='[MSSV (SV!DT)]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[MSSV]' role='dimension' type='ordinal' />
+      <column caption='Namhh' datatype='date' name='[NAMHH]' role='dimension' type='ordinal' />
+      <column caption='Sodt (Giaovien)' datatype='integer' name='[SODT (GIAOVIEN)]' role='measure' type='quantitative' />
+      <column caption='SỐ ĐT' datatype='integer' name='[SODT]' role='dimension' type='ordinal' />
+      <column caption='Tendt' datatype='string' name='[TENDT]' role='dimension' type='nominal' />
+      <column caption='Tengv' datatype='string' name='[TENGV]' role='dimension' type='nominal' />
+      <column caption='TÊN SINH VIÊN' datatype='string' name='[TENSV]' role='dimension' type='nominal' />
+      <_.fcp.ObjectModelTableType.true...column caption='DETAI' datatype='table' name='[__tableau_internal_object_id__].[DETAI_A078F1A7FFF14B38B7932DDD0E7D1904]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='GIAOVIEN' datatype='table' name='[__tableau_internal_object_id__].[GIAOVIEN_21A5C782139549DAB741884B78B75AD6]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='SINHVIEN' datatype='table' name='[__tableau_internal_object_id__].[SINHVIEN_6E37CE939EFC43B39BF6BD3C9D699146]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='SV_DT' datatype='table' name='[__tableau_internal_object_id__].[SV!DT_3A18CF3BAFD6409DB523DB154B23B8B1]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='UVDT' datatype='table' name='[__tableau_internal_object_id__].[UVDT_8843879AB8294C65A69CB597A0E0CAFF]' role='measure' type='quantitative' />
+      <column-instance column='[DIACHI]' derivation='None' name='[none:DIACHI:nk]' pivot='key' type='nominal' />
+      <column-instance column='[LOP]' derivation='None' name='[none:LOP:nk]' pivot='key' type='nominal' />
+      <column-instance column='[MSSV]' derivation='None' name='[none:MSSV:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[SODT]' derivation='None' name='[none:SODT:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[TENSV]' derivation='None' name='[none:TENSV:nk]' pivot='key' type='nominal' />
+      <group hidden='true' name='[Inclusions (LỚP,MSSV,SỐ ĐT,TÊN SINH VIÊN,ĐỊA CHỈ)]' name-style='unqualified' user:auto-column='include'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:LOP:nk]' />
+          <groupfilter function='level-members' level='[none:MSSV:ok]' />
+          <groupfilter function='level-members' level='[none:SODT:ok]' />
+          <groupfilter function='level-members' level='[none:TENSV:nk]' />
+          <groupfilter function='level-members' level='[none:DIACHI:nk]' />
+        </groupfilter>
+      </group>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' _.fcp.SchemaViewerObjectModel.true...common-percentage='0.964006' _.fcp.SchemaViewerObjectModel.true...user-set-layout-v2='true' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.0359937' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='MSSV' />
+        <field-sort-custom-order field='TENSV' />
+        <field-sort-custom-order field='SODT' />
+        <field-sort-custom-order field='LOP' />
+        <field-sort-custom-order field='DIACHI' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='DETAI' id='DETAI_A078F1A7FFF14B38B7932DDD0E7D1904'>
+            <properties context=''>
+              <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='DETAI' table='[DETAI$]' type='table'>
+                <columns gridOrigin='A1:B7:no:A1:B7:1' header='yes' lost='0' outcome='1' processed='6'>
+                  <column datatype='integer' name='MSDT' ordinal='0' />
+                  <column datatype='string' name='TENDT' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='GIAOVIEN' id='GIAOVIEN_21A5C782139549DAB741884B78B75AD6'>
+            <properties context=''>
+              <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='GIAOVIEN' table='[GIAOVIEN$]' type='table'>
+                <columns gridOrigin='A1:F6:no:A1:F6:1' lost='0' outcome='1' processed='20'>
+                  <column datatype='integer' name='MSGV' ordinal='0' />
+                  <column datatype='string' name='TENGV' ordinal='1' />
+                  <column datatype='string' name='DIACHI' ordinal='2' />
+                  <column datatype='integer' name='SODT' ordinal='3' />
+                  <column datatype='integer' name='MSHH' ordinal='4' />
+                  <column datatype='date' name='NAMHH' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='SINHVIEN' id='SINHVIEN_6E37CE939EFC43B39BF6BD3C9D699146'>
+            <properties context=''>
+              <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='SINHVIEN' table='[SINHVIEN$]' type='table'>
+                <columns gridOrigin='A1:E7:no:A1:E7:1' header='yes' lost='0' outcome='1' processed='12'>
+                  <column datatype='integer' name='MSSV' ordinal='0' />
+                  <column datatype='string' name='TENSV' ordinal='1' />
+                  <column datatype='integer' name='SODT' ordinal='2' />
+                  <column datatype='string' name='LOP' ordinal='3' />
+                  <column datatype='string' name='DIACHI' ordinal='4' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='SV_DT' id='SV!DT_3A18CF3BAFD6409DB523DB154B23B8B1'>
+            <properties context=''>
+              <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='SV_DT' table='[SV_DT$]' type='table'>
+                <columns gridOrigin='A1:B6:no:A1:B6:1' header='yes' lost='0' outcome='1' processed='10'>
+                  <column datatype='integer' name='MSSV' ordinal='0' />
+                  <column datatype='integer' name='MSDT' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='UVDT' id='UVDT_8843879AB8294C65A69CB597A0E0CAFF'>
+            <properties context=''>
+              <relation connection='excel-direct.15e7rjz1ecat6p126yaph0u8rzt9' name='UVDT' table='[UVDT$]' type='table'>
+                <columns gridOrigin='A1:C19:no:A1:C19:1' lost='0' outcome='1' processed='54'>
+                  <column datatype='integer' name='MSGV' ordinal='0' />
+                  <column datatype='integer' name='MSDT' ordinal='1' />
+                  <column datatype='integer' name='DIEM' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[MSDT]' />
+              <expression op='[MSDT (DETAI)]' />
+            </expression>
+            <first-end-point object-id='SV!DT_3A18CF3BAFD6409DB523DB154B23B8B1' />
+            <second-end-point object-id='DETAI_A078F1A7FFF14B38B7932DDD0E7D1904' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[MSGV]' />
+              <expression op='[MSGV (GIAOVIEN)]' />
+            </expression>
+            <first-end-point object-id='UVDT_8843879AB8294C65A69CB597A0E0CAFF' />
+            <second-end-point object-id='GIAOVIEN_21A5C782139549DAB741884B78B75AD6' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[MSSV]' />
+              <expression op='[MSSV (SV!DT)]' />
+            </expression>
+            <first-end-point object-id='SINHVIEN_6E37CE939EFC43B39BF6BD3C9D699146' />
+            <second-end-point object-id='SV!DT_3A18CF3BAFD6409DB523DB154B23B8B1' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[MSDT (DETAI)]' />
+              <expression op='[MSDT (UVDT)]' />
+            </expression>
+            <first-end-point object-id='DETAI_A078F1A7FFF14B38B7932DDD0E7D1904' />
+            <second-end-point object-id='UVDT_8843879AB8294C65A69CB597A0E0CAFF' />
+          </relationship>
+        </relationships>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='11'>QLTT-BTTH-TUẦN 4</run>
+            <run fontalignment='1'>&#10;DANH SÁCH SINH VIÊN</run>
+          </formatted-text>
+        </title>
+        <caption>
+          <formatted-text>
+            <run fontalignment='2'>TP Hồ Chí Minh, 27/5/2023
+           Người lập       
+       Trần Tuyết Minh   </run>
+            <run fontalignment='1'><![CDATA[
+Page <Page Number>  of  <Page Count>]]></run>
+          </formatted-text>
+        </caption>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='QLDT' name='federated.0yoc0ye1pjime713s8pir1c50xar' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0yoc0ye1pjime713s8pir1c50xar'>
+            <column caption='STT' datatype='integer' name='[Calculation_2190930880592556043]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='INDEX()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='&quot;ĐỊA CHỈ&quot;' datatype='string' name='[Calculation_2190930880592949261]' role='dimension' type='nominal' user:unnamed='Sheet 1'>
+              <calculation class='tableau' formula='&quot;ĐỊA CHỈ&quot;' />
+            </column>
+            <column caption='ĐỊA CHỈ' datatype='string' name='[DIACHI]' role='dimension' type='nominal' />
+            <column caption='LỚP' datatype='string' name='[LOP]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[MSSV]' role='dimension' type='ordinal' />
+            <column caption='SỐ ĐT' datatype='integer' name='[SODT]' role='dimension' type='ordinal' />
+            <column caption='TÊN SINH VIÊN' datatype='string' name='[TENSV]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_2190930880592949261]' derivation='None' name='[none:Calculation_2190930880592949261:nk]' pivot='key' type='nominal' />
+            <column-instance column='[DIACHI]' derivation='None' name='[none:DIACHI:nk]' pivot='key' type='nominal' />
+            <column-instance column='[LOP]' derivation='None' name='[none:LOP:nk]' pivot='key' type='nominal' />
+            <column-instance column='[MSSV]' derivation='None' name='[none:MSSV:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[SODT]' derivation='None' name='[none:SODT:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[TENSV]' derivation='None' name='[none:TENSV:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_2190930880592556043]' derivation='User' name='[usr:Calculation_2190930880592556043:ok]' pivot='key' type='ordinal'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0yoc0ye1pjime713s8pir1c50xar].[Inclusions (LỚP,MSSV,SỐ ĐT,TÊN SINH VIÊN,ĐỊA CHỈ)]' />
+          <slices>
+            <column>[federated.0yoc0ye1pjime713s8pir1c50xar].[Inclusions (LỚP,MSSV,SỐ ĐT,TÊN SINH VIÊN,ĐỊA CHỈ)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='color' value='#000000' />
+            <format attr='height' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:DIACHI:nk]' value='74' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[usr:Calculation_2190930880592556043:ok]' value='48' />
+            <format attr='band-color' scope='rows' value='#ffffff' />
+            <format attr='band-color' scope='cols' value='#ffffff' />
+            <format attr='background-color' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:Calculation_2190930880592949261:nk]' value='#f6f430' />
+            <format attr='width' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:DIACHI:nk]' value='560' />
+            <format attr='width' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:MSSV:ok]' value='124' />
+            <format attr='width' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:TENSV:nk]' value='116' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='background-color' value='#f6f430' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:DIACHI:nk]' value='false' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='rows' value='#ffffff' />
+            <format attr='band-color' scope='cols' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#ffffff' />
+            <format attr='band-size' scope='rows' value='1' />
+            <format attr='band-size' scope='cols' value='1' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='caption'>
+            <format attr='background-color' value='#ffffff' />
+            <format attr='border-color' value='#000000' />
+            <format attr='border-width' value='0' />
+            <format attr='border-style' value='none' />
+          </style-rule>
+          <style-rule element='title'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:DIACHI:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0yoc0ye1pjime713s8pir1c50xar].[usr:Calculation_2190930880592556043:ok] / ([federated.0yoc0ye1pjime713s8pir1c50xar].[none:MSSV:ok] / ([federated.0yoc0ye1pjime713s8pir1c50xar].[none:TENSV:nk] / ([federated.0yoc0ye1pjime713s8pir1c50xar].[none:SODT:ok] / ([federated.0yoc0ye1pjime713s8pir1c50xar].[none:LOP:nk] / [federated.0yoc0ye1pjime713s8pir1c50xar].[none:DIACHI:nk])))))</rows>
+        <cols>[federated.0yoc0ye1pjime713s8pir1c50xar].[none:Calculation_2190930880592949261:nk]</cols>
+      </table>
+      <simple-id uuid='{D0824342-AD29-4E01-86AA-B9A052FA1B38}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontsize='11'>QLTT-BTTH-TUẦN 4</run>
+            <run fontalignment='1'>
+THỐNG KÊ ĐIỂM CỦA GIÁO VIÊN UỶ VIÊN THEO TỪNG ĐỀ TÀI
+</run>
+          </formatted-text>
+        </title>
+        <caption>
+          <formatted-text>
+            <run fontalignment='2'>TP Hồ Chí Minh, 27/5/2023
+           Người lập       
+       Trần Tuyết Minh   </run>
+            <run fontalignment='1'><![CDATA[
+Page <Page Number>  of  <Page Count>]]></run>
+          </formatted-text>
+        </caption>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='QLDT' name='federated.0yoc0ye1pjime713s8pir1c50xar' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0yoc0ye1pjime713s8pir1c50xar'>
+            <column caption='STT' datatype='integer' name='[Calculation_2190930880592556043]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='INDEX()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='&quot;ĐIỂM&quot;' datatype='string' name='[Calculation_2190930880885723152]' role='dimension' type='nominal' user:unnamed='Sheet 2'>
+              <calculation class='tableau' formula='&quot;ĐIỂM&quot;' />
+            </column>
+            <column caption='Diem' datatype='integer' name='[DIEM]' role='measure' type='quantitative' />
+            <column caption='Msdt (Detai)' datatype='integer' name='[MSDT (DETAI)]' role='dimension' type='ordinal' />
+            <column caption='Msgv' datatype='integer' name='[MSGV]' role='measure' type='quantitative' />
+            <column caption='Tendt' datatype='string' name='[TENDT]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_2190930880885723152]' derivation='None' name='[none:Calculation_2190930880885723152:nk]' pivot='key' type='nominal' />
+            <column-instance column='[MSDT (DETAI)]' derivation='None' name='[none:MSDT (DETAI):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[MSGV]' derivation='None' name='[none:MSGV:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[TENDT]' derivation='None' name='[none:TENDT:nk]' pivot='key' type='nominal' />
+            <column-instance column='[DIEM]' derivation='Sum' name='[sum:DIEM:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2190930880592556043]' derivation='User' name='[usr:Calculation_2190930880592556043:ok:42]' pivot='key' type='ordinal'>
+              <table-calc level-address='[federated.0yoc0ye1pjime713s8pir1c50xar].[MSDT (DETAI)]' ordering-type='Field'>
+                <order field='[federated.0yoc0ye1pjime713s8pir1c50xar].[MSDT (DETAI)]' />
+                <order field='[federated.0yoc0ye1pjime713s8pir1c50xar].[MSGV]' />
+                <order field='[federated.0yoc0ye1pjime713s8pir1c50xar].[TENDT]' />
+              </table-calc>
+            </column-instance>
+          </datasource-dependencies>
+          <natural-sort column='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:MSDT (DETAI):ok]' direction='ASC' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-align' data-class='subtotal' value='center' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:TENDT:nk]' value='192' />
+            <format attr='background-color' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:Calculation_2190930880885723152:nk]' value='#f6f430' />
+            <format attr='vertical-align' data-class='subtotal' scope='cols' value='center' />
+            <format attr='text-align' data-class='subtotal' scope='cols' value='center' />
+            <format attr='text-orientation' data-class='subtotal' scope='cols' value='0' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='background-color' value='#f6f430' />
+          </style-rule>
+          <style-rule element='field-labels-spanner'>
+            <format attr='background-color' scope='rows' value='#f6f430' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.0yoc0ye1pjime713s8pir1c50xar].[none:TENDT:nk]' value='true' />
+            <format attr='vertical-align' scope='cols' value='center' />
+            <format attr='text-align' value='left' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='title'>
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='2' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0yoc0ye1pjime713s8pir1c50xar].[sum:DIEM:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0yoc0ye1pjime713s8pir1c50xar].[usr:Calculation_2190930880592556043:ok:42] / ([federated.0yoc0ye1pjime713s8pir1c50xar].[none:MSDT (DETAI):ok] / ([federated.0yoc0ye1pjime713s8pir1c50xar].[none:TENDT:nk] / [federated.0yoc0ye1pjime713s8pir1c50xar].[none:MSGV:ok])))</rows>
+        <cols>[federated.0yoc0ye1pjime713s8pir1c50xar].[none:Calculation_2190930880885723152:nk]</cols>
+      </table>
+      <simple-id uuid='{6BDD513B-F203-4F07-B7F4-ED9C274FEF3C}' />
+    </worksheet>
+    <worksheet name='Sheet 4'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1'>DOANH THU THEO THÁNG CỦA TỪNG NHÂN VIÊN TRONG NĂM 2006</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='QUANLYBANHANG' name='federated.1v2g2mi1tn09m31363ax21pzwddq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1v2g2mi1tn09m31363ax21pzwddq'>
+            <column caption='trigia' datatype='integer' name='[Calculation_2190930880930689059]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IFNULL(SUM([TRIGIA]),0)' />
+            </column>
+            <column caption='Hoten' datatype='string' name='[HOTEN]' role='dimension' type='nominal' />
+            <column caption='Nghd' datatype='date' name='[NGHD]' role='dimension' type='ordinal' />
+            <column caption='Trigia' datatype='integer' name='[TRIGIA]' role='measure' type='quantitative' />
+            <column-instance column='[NGHD]' derivation='Month' name='[mn:NGHD:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[HOTEN]' derivation='None' name='[none:HOTEN:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_2190930880930689059]' derivation='User' name='[usr:Calculation_2190930880930689059:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[Exclusions (Hoten,MONTH(Nghd))]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[none:HOTEN:nk]' />
+                <groupfilter function='level-members' level='[mn:NGHD:ok]' />
+              </groupfilter>
+              <groupfilter function='reorder-dimensionality'>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[mn:NGHD:ok]' member='9' />
+                  <groupfilter function='member' level='[none:HOTEN:nk]' member='&quot;Ngo Thanh Tuan&quot;' />
+                </groupfilter>
+                <order>
+                  <hierarchy name='[none:HOTEN:nk]' />
+                  <hierarchy name='[mn:NGHD:ok]' />
+                </order>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[mn:NGHD:ok]' />
+              <groupfilter function='member' level='[mn:NGHD:ok]' member='1' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:HOTEN:nk]' kind='hide'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:HOTEN:nk]' />
+              <groupfilter function='member' level='[none:HOTEN:nk]' member='&quot;Nguyen Thi Truc Thanh&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]</column>
+            <column>[federated.1v2g2mi1tn09m31363ax21pzwddq].[Exclusions (Hoten,MONTH(Nghd))]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930880930689059:qk]' scope='rows' value='true' />
+            <format attr='title' class='0' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930880930689059:qk]' scope='rows' value='DOANH THU (TRIỆU ĐỒNG)' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='iLL' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='total-label' data-class='total' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='CÁC THÁNG TRONG NĂM 2006' />
+            <format attr='total-label' data-class='subtotal' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='CÁC THÁNG TRONG NĂM 2006' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='true' />
+            <format attr='text-format' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='iLL' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='legend'>
+            <format attr='border-style' value='solid' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:HOTEN:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930880930689059:qk]</rows>
+        <cols>[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]</cols>
+      </table>
+      <simple-id uuid='{114020B5-959E-436C-894C-FC5B46CB25E9}' />
+    </worksheet>
+    <worksheet name='Sheet 4 (2)'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>BẢNG SỐ LIỆU CHI TIẾT</run>
+            <run fontalignment='1'>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='QUANLYBANHANG' name='federated.1v2g2mi1tn09m31363ax21pzwddq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1v2g2mi1tn09m31363ax21pzwddq'>
+            <column caption='trigia' datatype='integer' name='[Calculation_2190930880930689059]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IFNULL(SUM([TRIGIA]),0)' />
+            </column>
+            <column caption='NV - HO TEN' datatype='string' name='[Calculation_2190930881193373746]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[MANV] + &quot; - &quot; + [HOTEN]' />
+            </column>
+            <column caption='Hoten' datatype='string' name='[HOTEN]' role='dimension' type='nominal' />
+            <column caption='Manv' datatype='string' name='[MANV]' role='dimension' type='nominal' />
+            <column caption='Nghd' datatype='date' name='[NGHD]' role='dimension' type='ordinal' />
+            <column caption='Trigia' datatype='integer' name='[TRIGIA]' role='measure' type='quantitative' />
+            <column-instance column='[NGHD]' derivation='Month' name='[mn:NGHD:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_2190930881193373746]' derivation='None' name='[none:Calculation_2190930881193373746:nk]' pivot='key' type='nominal' />
+            <column-instance column='[HOTEN]' derivation='None' name='[none:HOTEN:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_2190930880930689059]' derivation='User' name='[usr:Calculation_2190930880930689059:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[Exclusions (Hoten,MONTH(Nghd))]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='crossjoin'>
+                <groupfilter function='level-members' level='[none:HOTEN:nk]' />
+                <groupfilter function='level-members' level='[mn:NGHD:ok]' />
+              </groupfilter>
+              <groupfilter function='reorder-dimensionality'>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[mn:NGHD:ok]' member='9' />
+                  <groupfilter function='member' level='[none:HOTEN:nk]' member='&quot;Ngo Thanh Tuan&quot;' />
+                </groupfilter>
+                <order>
+                  <hierarchy name='[none:HOTEN:nk]' />
+                  <hierarchy name='[mn:NGHD:ok]' />
+                </order>
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[mn:NGHD:ok]' />
+              <groupfilter function='member' level='[mn:NGHD:ok]' member='1' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' kind='hide'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[mn:NGHD:ok]' />
+              <groupfilter function='member' level='[mn:NGHD:ok]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881193373746:nk]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Calculation_2190930881193373746:nk]' />
+              <groupfilter function='member' level='[none:Calculation_2190930881193373746:nk]' member='&quot;NV05 - Nguyen Thi Truc Thanh&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881193373746:nk]' kind='hide'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Calculation_2190930881193373746:nk]' />
+              <groupfilter function='member' level='[none:Calculation_2190930881193373746:nk]' member='&quot;NV05 Nguyen Thi Truc Thanh&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]</column>
+            <column>[federated.1v2g2mi1tn09m31363ax21pzwddq].[Exclusions (Hoten,MONTH(Nghd))]</column>
+            <column>[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881193373746:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930880930689059:qk]' scope='cols' value='true' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='iL' />
+            <format attr='width' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='99' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='total-label' data-class='subtotal' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='Tháng' />
+            <format attr='total-label' data-class='total' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='Tháng' />
+            <format attr='total-label' data-class='total' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881193373746:nk]' value='Tổng cả năm' />
+            <format attr='width' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881193373746:nk]' value='192' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='true' />
+            <format attr='text-format' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]' value='iL' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+            <format attr='in-tooltip' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930880930689059:qk]' value='false' />
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930880930689059:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows onTop='true' total='true'>[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881193373746:nk]</rows>
+        <cols onLeft='true' total='true'>[federated.1v2g2mi1tn09m31363ax21pzwddq].[mn:NGHD:ok]</cols>
+        <show-full-range>
+          <column>[federated.1v2g2mi1tn09m31363ax21pzwddq].[NGHD]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{1B5C4BFE-08D6-4DB4-BD4F-71BEA32BDF65}' />
+    </worksheet>
+    <worksheet name='Sheet 5'>
+      <layout-options>
+        <title>
+          <formatted-text />
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='QUANLYBANHANG' name='federated.1v2g2mi1tn09m31363ax21pzwddq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1v2g2mi1tn09m31363ax21pzwddq'>
+            <column caption='DOANHTHU 2006' datatype='integer' name='[Calculation_2190930881219543093]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Nghd (group)] = &quot;2006&quot; THEN [SL]*[GIA] + 0 END' />
+            </column>
+            <column caption='DOANHTHU 2007' datatype='integer' name='[Calculation_2190930881225568314]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Nghd (group) 1] = &quot;2007&quot; THEN [SL]*[GIA] END' />
+            </column>
+            <column caption='DOANHTHU 2006&amp;2007' datatype='integer' name='[Calculation_2190930881228841022]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[SL]*[GIA]' />
+            </column>
+            <column caption='ZN(SUM([DOANHTHU 2006&amp;2007]))' datatype='integer' name='[Calculation_2190930881231024192]' role='measure' type='quantitative' user:unnamed='Sheet 5'>
+              <calculation class='tableau' formula='ZN(SUM([Calculation_2190930881228841022]))' />
+            </column>
+            <column caption='MASP' datatype='string' name='[Calculation_2190930881584009283]' role='dimension' type='nominal' user:unnamed='Sheet 5'>
+              <calculation class='tableau' formula='//MASP &#10;[MASP (SANPHAM )]' />
+            </column>
+            <column caption='TÊN SẢN PHẨM' datatype='string' name='[Calculation_2190930881584123972]' role='dimension' type='nominal' user:unnamed='Sheet 5'>
+              <calculation class='tableau' formula='//TÊN SẢN PHẨM&#10;[TENSP]' />
+            </column>
+            <column caption='DOANHTHU 2006' datatype='integer' name='[Calculation_2190930881584218181]' role='measure' type='quantitative' user:unnamed='Sheet 5'>
+              <calculation class='tableau' formula='//DOANHTHU 2006 &#10;&#10;&#10;&#10;ZN(SUM([Calculation_2190930881219543093]))' />
+            </column>
+            <column caption='DOANHTHU 2007' datatype='integer' name='[Calculation_2190930881584386118]' role='measure' type='quantitative' user:unnamed='Sheet 5'>
+              <calculation class='tableau' formula='//DOANHTHU 2007 &#10;&#10;ZN(SUM([Calculation_2190930881225568314]))' />
+            </column>
+            <column caption='&quot;TỔNG 2006&amp;2007&quot;' datatype='string' name='[Calculation_2190930881584525384]' role='dimension' type='nominal' user:unnamed='Sheet 5'>
+              <calculation class='tableau' formula='&quot;TỔNG 2006&amp;2007&quot;' />
+            </column>
+            <column caption='STT' datatype='integer' name='[Calculation_2190930881584664649]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='INDEX()'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column datatype='integer' name='[GIA]' role='measure' type='quantitative' />
+            <column caption='Masp (Sanpham )' datatype='string' name='[MASP (SANPHAM )]' role='dimension' type='nominal' />
+            <column caption='Nghd' datatype='date' name='[NGHD]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[Nghd (group) 1]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[NGHD]' new-bin='true'>
+                <bin default-name='false' value='&quot;2007&quot;'>
+                  <value>#2007-01-01#</value>
+                  <value>#2007-01-02#</value>
+                  <value>#2007-01-13#</value>
+                  <value>#2007-01-14#</value>
+                  <value>#2007-01-16#</value>
+                  <value>#2007-01-17#</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='string' name='[Nghd (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[NGHD]' new-bin='true'>
+                <bin default-name='false' value='&quot;2006&quot;'>
+                  <value>#2006-07-23#</value>
+                  <value>#2006-08-12#</value>
+                  <value>#2006-08-23#</value>
+                  <value>#2006-09-01#</value>
+                  <value>#2006-10-16#</value>
+                  <value>#2006-10-20#</value>
+                  <value>#2006-10-28#</value>
+                  <value>#2006-11-01#</value>
+                  <value>#2006-11-04#</value>
+                  <value>#2006-11-30#</value>
+                  <value>#2006-12-12#</value>
+                  <value>#2006-12-31#</value>
+                </bin>
+              </calculation>
+            </column>
+            <column datatype='integer' name='[SL]' role='measure' type='quantitative' />
+            <column caption='Tensp' datatype='string' name='[TENSP]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_2190930881584009283]' derivation='None' name='[none:Calculation_2190930881584009283:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_2190930881584123972]' derivation='None' name='[none:Calculation_2190930881584123972:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_2190930881584525384]' derivation='None' name='[none:Calculation_2190930881584525384:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_2190930881231024192]' derivation='User' name='[usr:Calculation_2190930881231024192:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2190930881584218181]' derivation='User' name='[usr:Calculation_2190930881584218181:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_2190930881584386118]' derivation='User' name='[usr:Calculation_2190930881584386118:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_2190930881584664649]' derivation='User' name='[usr:Calculation_2190930881584664649:ok:2]' pivot='key' type='ordinal'>
+              <table-calc ordering-type='Columns' />
+            </column-instance>
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='113' />
+            <format attr='text-align' value='right' />
+            <format attr='text-align' data-class='subtotal' value='center' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-style' scope='rows' value='solid' />
+            <format attr='text-decoration' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881584525384:nk]' value='underline' />
+            <format attr='border-width' value='1' />
+            <format attr='border-width' scope='cols' value='5' />
+            <format attr='border-style' scope='cols' value='solid' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930881584218181:ok]' value='208' />
+            <format attr='width' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930881584386118:ok]' value='236' />
+            <format attr='width' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930881584664649:ok:2]' value='28' />
+            <format attr='width' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881584009283:nk]' value='64' />
+            <format attr='width' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881584123972:nk]' value='164' />
+            <format attr='text-align' data-class='subtotal' scope='rows' value='right' />
+            <format attr='background-color' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881584525384:nk]' value='#f6f430' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='text-decoration' value='underline' />
+            <format attr='font-weight' value='bold' />
+            <format attr='color' value='#000000' />
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='field-labels-decoration'>
+            <format attr='background-color' value='#f6f430' />
+            <format attr='color' value='#000000' />
+          </style-rule>
+          <style-rule element='field-labels-spanner'>
+            <format attr='background-color' scope='rows' value='#000000' />
+            <format attr='color' scope='cols' value='#000000' />
+            <format attr='separator' scope='cols' value='|' />
+            <format attr='color' scope='rows' value='#000000' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-align' scope='cols' value='right' />
+            <format attr='text-align' scope='rows' value='right' />
+            <format attr='vertical-align' scope='rows' value='center' />
+            <format attr='text-decoration' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881584525384:nk]' value='underline' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' data-class='subtotal' value='solid' />
+            <format attr='border-color' scope='rows' value='#000000' />
+            <format attr='border-style' scope='rows' value='solid' />
+            <format attr='border-width' scope='rows' value='5' />
+            <format attr='border-width' data-class='subtotal' value='5' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='1' />
+            <format attr='stroke-size' scope='cols' value='1' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930881231024192:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930881584664649:ok:2] / ([federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881584009283:nk] / ([federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881584123972:nk] / ([federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930881584218181:ok] / [federated.1v2g2mi1tn09m31363ax21pzwddq].[usr:Calculation_2190930881584386118:ok]))))</rows>
+        <cols>[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:Calculation_2190930881584525384:nk]</cols>
+      </table>
+      <simple-id uuid='{FB830DF4-2D6C-4986-90EE-405B7A92A632}' />
+    </worksheet>
+    <worksheet name='Sheet 6'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontalignment='1'>DOANH THU THEO TỪNG SẢN PHẨM TRONG </run>
+            <run fontalignment='1'>Æ&#10;</run>
+            <run bold='true' fontalignment='1'>NĂM 2006 VÀ 2007</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='QUANLYBANHANG' name='federated.1v2g2mi1tn09m31363ax21pzwddq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1v2g2mi1tn09m31363ax21pzwddq'>
+            <column caption='DOANHTHU 2006&amp;2007' datatype='integer' name='[Calculation_2190930881228841022]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[SL]*[GIA]' />
+            </column>
+            <column datatype='integer' name='[GIA]' role='measure' type='quantitative' />
+            <column caption='Masp (Sanpham )' datatype='string' name='[MASP (SANPHAM )]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[SL]' role='measure' type='quantitative' />
+            <column-instance column='[MASP (SANPHAM )]' derivation='None' name='[none:MASP (SANPHAM ):nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_2190930881228841022]' derivation='Sum' name='[pcto:sum:Calculation_2190930881228841022:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Columns' type='PctTotal' />
+            </column-instance>
+            <column-instance column='[Calculation_2190930881228841022]' derivation='Sum' name='[pcto:sum:Calculation_2190930881228841022:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='cell-w' value='176' />
+            <format attr='cell-h' value='176' />
+            <format attr='cell' value='22' />
+            <format attr='cell-q' value='110' />
+          </style-rule>
+          <style-rule element='legend-title'>
+            <format attr='text-align' value='center' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='size' field='[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk:2]' value='total' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:MASP (SANPHAM ):nk]' />
+              <wedge-size column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk]' />
+              <size column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk:2]' />
+              <text column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk]' />
+              <text column='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:MASP (SANPHAM ):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.9010497331619263' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+        <mark-labels>
+          <mark-label id='4' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:MASP (SANPHAM ):nk]</field>
+                  <field>[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk:2]</field>
+                  <field>[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;ST07&quot;</value>
+                <value>0.029304029304029304</value>
+                <value>0.029304029304029304</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='5' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:MASP (SANPHAM ):nk]</field>
+                  <field>[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk:2]</field>
+                  <field>[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;ST06&quot;</value>
+                <value>0.017006802721088437</value>
+                <value>0.017006802721088437</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+          <mark-label id='6' label-state='on'>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields />
+                  <y-fields />
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:MASP (SANPHAM ):nk]</field>
+                  <field>[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk:2]</field>
+                  <field>[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;ST05&quot;</value>
+                <value>0.014390371533228676</value>
+                <value>0.014390371533228676</value>
+              </tuple>
+            </tuple-reference>
+          </mark-label>
+        </mark-labels>
+      </table>
+      <simple-id uuid='{21A9EFC1-2A07-49D4-BCBF-0257A0E11960}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 2'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='5' type-v2='layout-basic' w='82400' x='800' y='1000'>
+              <zone h='51250' id='3' name='Sheet 6' w='82400' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='46750' id='10' name='Sheet 5' w='82400' x='800' y='52250'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98000' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='61000' id='8' name='Sheet 6' pane-specification-id='0' param='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:MASP (SANPHAM ):nk]' show-title='false' type-v2='color' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='5750' id='9' name='Sheet 6' pane-specification-id='0' param='[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk:2]' type-v2='size' w='16000' x='83200' y='62000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='750' minheight='750' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='14' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='51250' id='3' is-fixed='true' name='Sheet 6' w='82400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='61000' id='8' name='Sheet 6' pane-specification-id='0' param='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:MASP (SANPHAM ):nk]' show-title='false' type-v2='color' w='16000' x='83200' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='5750' id='9' name='Sheet 6' pane-specification-id='0' param='[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk:2]' type-v2='size' w='16000' x='83200' y='62000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46750' id='10' is-fixed='true' name='Sheet 5' w='82400' x='800' y='52250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{A84FC75E-9CF1-490A-A525-00AD1F6C6490}' />
+    </dashboard>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Dashboard 3'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='49000' id='7' param='horz' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='49000' id='5' type-v2='layout-basic' w='82400' x='800' y='1000'>
+              <zone h='49000' id='3' name='Sheet 4' w='82400' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='49000' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='11250' id='8' name='Sheet 4' pane-specification-id='0' param='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:HOTEN:nk]' show-title='false' type-v2='color' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='49000' id='9' name='Sheet 4 (2)' w='98400' x='800' y='50000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='1' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{4F1D22F4-A578-4997-B578-91E624631C2D}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='51'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='198'>
+            <card type='caption' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{5AE6A44B-E3B5-44A4-968E-F04C2EDDA258}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card AVG='true' KURTOSIS='false' MAX='true' MEDIAN='true' MIN='true' QUART1='false' QUART3='false' SKEWNESS='false' STDEV='false' SUM='true' type='summary' />
+          </strip>
+        </edge>
+        <edge name='bottom'>
+          <strip size='230'>
+            <card type='caption' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-height' />
+      </viewpoint>
+      <simple-id uuid='{5C9E68B3-B1BE-472B-882F-D1973861DD9C}' />
+    </window>
+    <window class='worksheet' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:HOTEN:nk]' show-title='false' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{AB4CDC68-40EE-400F-BAE9-4E1236B7B756}' />
+    </window>
+    <window class='worksheet' name='Sheet 4 (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{96C693A1-5B25-4B7C-BB10-262A6BF295D0}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 3'>
+      <viewpoints>
+        <viewpoint name='Sheet 4'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 4 (2)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{5876781D-E04B-4F4A-837C-861D225B1E81}' />
+    </window>
+    <window class='worksheet' name='Sheet 5'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{2FC57273-A45B-47B8-85BC-1D99F71CD593}' />
+    </window>
+    <window class='worksheet' name='Sheet 6'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1v2g2mi1tn09m31363ax21pzwddq].[none:MASP (SANPHAM ):nk]' show-title='false' type='color' />
+            <card pane-specification-id='0' param='[federated.1v2g2mi1tn09m31363ax21pzwddq].[pcto:sum:Calculation_2190930881228841022:qk:2]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{D8214F5A-A9F9-42FE-A03D-814305785794}' />
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='Sheet 5'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Sheet 6'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{5CB3ECC4-9070-4EDB-8453-296796DA635F}' />
+    </window>
+  </windows>
+</workbook>

@@ -1,0 +1,935 @@
+CREATE DATABASE QLTT 
+USE QLTT
+CREATE TABLE SINHVIEN (
+    MSSV char(8) PRIMARY KEY,
+    TENSV nvarchar(30) NOT NULL,
+    SODT varchar(10),
+    LOP char(10) NOT NULL,
+    DIACHI nchar(50) NOT NULL,
+)
+
+CREATE TABLE DETAI (
+    MSDT CHAR(6) PRIMARY KEY,
+    TENDT NVARCHAR(30) NOT NULL,
+)
+CREATE TABLE SV_DETAI (
+    MSSV char(8) FOREIGN KEY REFERENCES SINHVIEN(MSSV), 
+    MSDT char(6) FOREIGN KEY REFERENCES DETAI(MSDT),
+)
+
+CREATE TABLE GIAOVIEN (
+    MSGV INT PRIMARY KEY,
+    TENGV nvarchar(30) NOT NULL,
+    DIACHI nvarchar(50) NOT NULL,
+    SODT varchar(10) NOT NULL,
+    MSHH INT FOREIGN KEY REFERENCES HOCHAM(MSHH),
+    NAMHH SMALLDATETIME NOT NULL,
+)
+
+
+CREATE TABLE HOCVI (
+    MSHV INT PRIMARY KEY,
+    TENHV NVARCHAR(20) NOT NULL,
+)
+
+CREATE TABLE CHUYENNGANH (
+    MSCN INT PRIMARY KEY,
+    TENCN NVARCHAR(30) NOT NULL,
+)
+
+CREATE TABLE GV_HV_CN (
+    MSGV INT FOREIGN KEY REFERENCES GIAOVIEN(MSGV),
+    MSHV INT FOREIGN KEY REFERENCES HOCVI(MSHV),
+    MSCN INT FOREIGN KEY REFERENCES CHUYENNGANH(MSCN),
+    NAM SMALLDATETIME,
+    PRIMARY KEY (MSGV, MSHV, MSCN)
+)
+
+CREATE TABLE HOCHAM (
+    MSHH INT PRIMARY KEY,
+    TENHH NVARCHAR(20) NOT NULL,
+)
+
+CREATE TABLE GV_HDDT (
+    MSGV INT FOREIGN KEY REFERENCES GIAOVIEN(MSGV),
+    MSDT CHAR(6) FOREIGN KEY REFERENCES DETAI(MSDT),
+    DIEM FLOAT NOT NULL,
+    PRIMARY KEY (MSGV,MSDT)
+)
+
+CREATE TABLE GV_PBDT (
+    MSGV INT FOREIGN KEY REFERENCES GIAOVIEN(MSGV),
+    MSDT CHAR(6) FOREIGN KEY REFERENCES DETAI(MSDT),
+    DIEM FLOAT NOT NULL,
+    PRIMARY KEY (MSGV,MSDT)
+)
+
+CREATE TABLE GV_UVDT(
+    MSGV INT FOREIGN KEY REFERENCES GIAOVIEN(MSGV),
+    MSDT CHAR(6) FOREIGN KEY REFERENCES DETAI(MSDT),
+    DIEM FLOAT NOT NULL,
+    PRIMARY KEY (MSGV,MSDT)
+)
+
+CREATE TABLE HOIDONG (
+    MSHD INT PRIMARY KEY, 
+    PHONG INT,
+    TGBD SMALLDATETIME,
+    NGAYHD SMALLDATETIME NOT NULL,
+    TINHTRANG NVARCHAR(30) NOT NULL,
+    MSGV INT FOREIGN KEY REFERENCES GIAOVIEN(MSGV),
+)
+
+CREATE TABLE HOIDONG_GV
+(
+    MSHD INT FOREIGN KEY REFERENCES HOIDONG(MSHD),
+    MSGV INT FOREIGN KEY REFERENCES GIAOVIEN(MSGV),
+    PRIMARY KEY (MSHD, MSGV)
+)
+
+CREATE TABLE HOIDONG_DT
+(
+    MSHD INT FOREIGN KEY REFERENCES HOIDONG(MSHD),
+    MSDT CHAR(6) FOREIGN KEY REFERENCES DETAI(MSDT),
+    QUYETDINH NCHAR(10)
+    PRIMARY KEY (MSHD, MSDT)
+)
+INSERT INTO SINHVIEN VALUES('13520001',N'Nguyễn Văn An','0906762255','SE103.U32',N'THỦ ĐỨC')
+INSERT INTO SINHVIEN VALUES('13520002',N'Phan Tấn Đạt','0975672350','IE204.T21',N'QUẬN 1')
+INSERT INTO SINHVIEN VALUES('13520003',N'Nguyễn Anh Hải','0947578688','IE205.R12',N'QUẬN 9')
+INSERT INTO SINHVIEN VALUES('13520004',N'Phạm Tài','0956757869','IE202.A22',N'QUẬN 1')
+INSERT INTO SINHVIEN VALUES('13520005',N'Lê Thúy Hằng','0976668688','SE304.E22',N'THỦ ĐỨC')
+INSERT INTO SINHVIEN VALUES('13520006',N'Ưng Hồng Ân','0957475898','IE208.F33',N'QUẬN 2')
+
+INSERT INTO DETAI VALUES('97001',N'Quản lý thư viện')
+INSERT INTO DETAI VALUES('97002',N'Nhận dạng vân tay')
+INSERT INTO DETAI VALUES('97003',N'Bán đấu giá trên mạng')
+INSERT INTO DETAI VALUES('97004',N'Quản lý siêu thị')
+INSERT INTO DETAI VALUES('97005',N'Xử lý ảnh')
+INSERT INTO DETAI VALUES('97006',N'Hệ giải toán thông minh')
+
+
+INSERT INTO SV_DETAI VALUES('13520001','97004')
+INSERT INTO SV_DETAI VALUES('13520002','97005')
+INSERT INTO SV_DETAI VALUES('13520003','97001')
+INSERT INTO SV_DETAI VALUES('13520004','97002')
+INSERT INTO SV_DETAI VALUES('13520005','97003')
+INSERT INTO SV_DETAI VALUES('13520006','97005')
+
+INSERT INTO HOCHAM VALUES('1',N'PHÓ GIÁO SƯ')
+INSERT INTO HOCHAM VALUES('2',N'GIÁO SƯ')
+
+
+INSERT INTO GIAOVIEN VALUES('00201',N'Trần Trung',N'Bến Tre','3535353 5 ','1','1996')
+INSERT INTO GIAOVIEN VALUES('00202',N'Nguyễn Văn An',N'Tiền Giang','6786868 8 ','1','1996')
+INSERT INTO GIAOVIEN VALUES('00203',N'Trần Thu Trang',N'Cần Thơ','7475868 7 ','1','1996')
+INSERT INTO GIAOVIEN VALUES('00204',N'Nguyễn Thị Loan',N'TP. HCM','5657586 8 ','2','2005')
+INSERT INTO GIAOVIEN VALUES('00205',N'Chu Tiến',N'Hà Nội','4646664 6 ','2','2005')
+
+
+INSERT INTO HOCVI VALUES('1',N'Kỹ sư')
+INSERT INTO HOCVI VALUES('2',N'Cử nhân')
+INSERT INTO HOCVI VALUES('3',N'Thạc sĩ')
+INSERT INTO HOCVI VALUES('4',N'Tiến sĩ')
+INSERT INTO HOCVI VALUES('5',N'Tiến sĩ Khoa học')
+
+
+INSERT INTO CHUYENNGANH VALUES('1',N'Công nghệ Web')
+INSERT INTO CHUYENNGANH VALUES('2',N'Mạng xã hội')
+INSERT INTO CHUYENNGANH VALUES('3',N'Quản lý CNTT')
+INSERT INTO CHUYENNGANH VALUES('4',N'GIS')
+
+
+INSERT INTO GV_HV_CN VALUES('00201','1','1','2013')
+INSERT INTO GV_HV_CN VALUES('00201','1','2','2013')
+INSERT INTO GV_HV_CN VALUES('00201','2','1','2014')
+INSERT INTO GV_HV_CN VALUES('00202','3','2','2013')
+INSERT INTO GV_HV_CN VALUES('00203','2','4','2014')
+INSERT INTO GV_HV_CN VALUES('00204','3','2','2014')
+
+
+INSERT INTO GV_HDDT VALUES('00201','97001','8')
+INSERT INTO GV_HDDT VALUES('00202','97002','7')
+INSERT INTO GV_HDDT VALUES('00205','97001','9')
+INSERT INTO GV_HDDT VALUES('00204','97004','7')
+INSERT INTO GV_HDDT VALUES('00203','97005','9')
+
+INSERT INTO GV_PBDT VALUES('00201','97005','8')
+INSERT INTO GV_PBDT VALUES('00202','97001','7')
+INSERT INTO GV_PBDT VALUES('00205','97004','9')
+INSERT INTO GV_PBDT VALUES('00204','97003','7')
+INSERT INTO GV_PBDT VALUES('00203','97002','9')
+
+INSERT INTO GV_UVDT VALUES('00205','97005','8')
+INSERT INTO GV_UVDT VALUES('00202','97005','7')
+INSERT INTO GV_UVDT VALUES('00204','97005','9')
+INSERT INTO GV_UVDT VALUES('00203','97001','7')
+INSERT INTO GV_UVDT VALUES('00204','97001','9')
+INSERT INTO GV_UVDT VALUES('00205','97001','8')
+INSERT INTO GV_UVDT VALUES('00203','97003','7')
+INSERT INTO GV_UVDT VALUES('00201','97003','9')
+INSERT INTO GV_UVDT VALUES('00202','97003','7')
+INSERT INTO GV_UVDT VALUES('00201','97004','9')
+INSERT INTO GV_UVDT VALUES('00202','97004','8')
+INSERT INTO GV_UVDT VALUES('00203','97004','7')
+INSERT INTO GV_UVDT VALUES('00201','97002','9')
+INSERT INTO GV_UVDT VALUES('00204','97002','7')
+INSERT INTO GV_UVDT VALUES('00205','97002','9')
+
+SET DATEFORMAT DMY
+INSERT INTO HOIDONG VALUES('1','002','7:00','29/11/2014',N'Thật','201')
+INSERT INTO HOIDONG VALUES('2','102','7:00','5/12/2014',N'Thật','202')
+INSERT INTO HOIDONG VALUES('3','003','8:00','6/12/2014',N'Thật','203')
+
+
+INSERT INTO HOIDONG_GV VALUES('1','00201')
+INSERT INTO HOIDONG_GV VALUES('1','00202')
+INSERT INTO HOIDONG_GV VALUES('1','00203')
+INSERT INTO HOIDONG_GV VALUES('1','00204')
+INSERT INTO HOIDONG_GV VALUES('2','00203')
+INSERT INTO HOIDONG_GV VALUES('2','00202')
+INSERT INTO HOIDONG_GV VALUES('2','00205')
+INSERT INTO HOIDONG_GV VALUES('2','00204')
+INSERT INTO HOIDONG_GV VALUES('3','00201')
+INSERT INTO HOIDONG_GV VALUES('3','00202')
+INSERT INTO HOIDONG_GV VALUES('3','00203')
+INSERT INTO HOIDONG_GV VALUES('3','00204')
+
+INSERT INTO HOIDONG_DT VALUES('1','97001',N'Được')
+INSERT INTO HOIDONG_DT VALUES('1','97002',N'Được')
+INSERT INTO HOIDONG_DT VALUES('2','97001',N'Không')
+INSERT INTO HOIDONG_DT VALUES('2','97004',N'Không')
+INSERT INTO HOIDONG_DT VALUES('1','97005',N'Được')
+INSERT INTO HOIDONG_DT VALUES('3','97001',N'Không')
+INSERT INTO HOIDONG_DT VALUES('3','97002',N'Được')
+
+
+
+--PROC
+--PROC 1
+GO
+CREATE PROCEDURE KIEMTRA_MSHH
+    (@MSGV int,
+    @TENGV nvarchar(30) ,
+    @DIACHI nvarchar(50),
+    @SODT varchar(10),
+    @MSHH INT,
+    @NAMHH SMALLDATETIME)
+AS
+BEGIN
+    -- LOGIC 
+    IF @MSHH IN (SELECT MSHH
+    FROM HOCHAM )
+     BEGIN
+        INSERT INTO GIAOVIEN
+        VALUES(@MSGV, @TENGV, @SODT, @DIACHI, @MSHH, @NAMHH)
+        PRINT N'THÊM THÀNH CÔNG'
+    END
+     ELSE 
+     BEGIN
+        PRINT 'ERROR'
+        RETURN 0
+    END
+END 
+--THUC THI 
+go
+EXEC KIEMTRA_MSHH @MSGV = '234', @TENGV=N'Trần Tuyết Minh', @SODT='09894823', @DIACHI='long an', @MSHH='3', @NAMHH='2019';
+--CHECK
+SELECT *
+FROM GIAOVIEN
+--BACKUP
+DELETE FROM GIAOVIEN WHERE MSGV = '234'
+
+
+--PROC 2
+GO
+CREATE PROCEDURE KIEMTRA_MSGV
+    @MSGV int,
+    @TENGV nvarchar(30) ,
+    @DIACHI nvarchar(50),
+    @SODT varchar(10),
+    @MSHH INT,
+    @NAMHH SMALLDATETIME
+AS
+BEGIN
+    -- LOGIC 
+    IF EXISTS (SELECT *
+    FROM GIAOVIEN
+    WHERE @MSGV = GIAOVIEN.MSGV )
+     BEGIN
+        PRINT 'ERROR'
+    END
+     ELSE 
+     BEGIN
+        INSERT INTO GIAOVIEN
+        VALUES(@MSGV, @TENGV, @SODT, @DIACHI, @MSHH, @NAMHH)
+        PRINT N'THÊM THÀNH CÔNG'
+    END
+END 
+go
+DROP PROC KIEMTRA_MSGV
+--THUC THI
+EXEC KIEMTRA_MSGV @MSGV = '201', @TENGV=N'Trần Tuyết Minh', @SODT='09894823', @DIACHI='long an', @MSHH='1', @NAMHH='2019'
+--CHECK
+SELECT *
+FROM GIAOVIEN
+--BACKUP
+DELETE FROM GIAOVIEN WHERE TENGV = N'Trần Tuyết Minh'
+
+
+
+--PROC 3
+GO
+CREATE PROC CHECK_MSHH_MSGV
+    @MSGV int,
+    @TENGV nvarchar(30) ,
+    @DIACHI nvarchar(50),
+    @SODT varchar(10),
+    @MSHH INT,
+    @NAMHH SMALLDATETIME
+AS
+BEGIN
+    IF NOT EXISTS (SELECT *
+    FROM HOCHAM
+    WHERE HOCHAM.MSHH = @MSHH)
+    BEGIN
+        PRINT N'MSHH KHÔNG HỢP LỆ'
+    END
+ELSE 
+    BEGIN
+        IF NOT EXISTS (SELECT *
+        FROM GIAOVIEN
+        WHERE @MSGV = GIAOVIEN.MSGV)
+        BEGIN
+            INSERT INTO GIAOVIEN
+            VALUES(@MSGV, @TENGV, @SODT, @DIACHI, @MSHH, @NAMHH)
+        END
+     ELSE
+         BEGIN
+            PRINT N'MSGV ĐÃ TỒN TẠI'
+        END
+    END
+END
+
+--THUC THI
+EXEC CHECK_MSHH_MSGV @MSGV = '201', @TENGV=N'Trần Tuyết Minh', @SODT='09894823', @DIACHI='long an', @MSHH='3', @NAMHH='2019';
+--CHECK
+SELECT *
+FROM GIAOVIEN
+--BACKUP
+DELETE FROM GIAOVIEN WHERE TENGV= N'Trần Tuyết Minh'
+
+
+--PROC 4 
+GO
+CREATE PROC UPDATE_TENDETAI
+    @MSDT CHAR(6),
+    @TENDT NCHAR(30)
+AS
+BEGIN
+    IF @MSDT IN (SELECT MSDT
+    FROM DETAI)
+       BEGIN
+        UPDATE DETAI SET TENDT = @TENDT WHERE @MSDT = MSDT
+    END 
+    ELSE
+       BEGIN
+        PRINT N'THÊM THẤT BẠI'
+        RETURN 0
+    END
+END
+drop proc UPDATE_TENDETAI
+--THUC THI
+EXEC UPDATE_TENDETAI @MSDT = '210', @TENDT = N'WEBSITE NẾN';
+--CHECK
+SELECT *
+FROM DETAI
+--BACKUP
+DELETE FROM DETAI WHERE MSDT = '210'
+
+--PROC 5
+GO
+CREATE PROC UPDATE_NAME_ADDRESS
+    @MSSV CHAR(8),
+    @TENSV nvarchar(30),
+    @DIACHI nchar(50)
+AS
+BEGIN
+    IF NOT EXISTS (SELECT MSSV
+    FROM SINHVIEN
+    WHERE MSSV = @MSSV)
+BEGIN
+        PRINT N'LỖI ÒI BẠN OI'
+        RETURN 0
+    END 
+ELSE 
+BEGIN
+        UPDATE SINHVIEN SET TENSV = @TENSV, DIACHI = @DIACHI WHERE MSSV = @MSSV
+        PRINT N'UPDATE THÀNH CÔNG'
+    END
+END
+--THUC THI
+EXEC UPDATE_NAME_ADDRESS @MSSV = '210', @TENSV = N'Trần TUYẾT Minh', @DIACHI=N'Cần Thơ'
+--CHECK
+SELECT *
+FROM DETAI
+--BACKUP
+DELETE FROM DETAI WHERE MSDT = '210'
+
+
+
+-----------------------------------PROC 2 
+--PROC2.1
+GO
+CREATE PROC COUNT_HVGV
+    @TENHV NVARCHAR(20),
+    @SOGV INT OUTPUT
+AS
+BEGIN
+    IF EXISTS (SELECT TENHV
+    FROM HOCVI
+    WHERE @TENHV = TENHV)
+BEGIN
+        SELECT @SOGV = (SELECT COUNT(*)
+            FROM HOCVI
+            WHERE @TENHV = TENHV)
+        RETURN @SOGV
+    END 
+ELSE 
+BEGIN
+        PRINT N'LỖI ÒI BÉ OI'
+        RETURN 0
+    END
+END 
+GO
+--THUC THI
+DECLARE @DEM INT, @TENHVS NVARCHAR(20)
+EXEC COUNT_HVGV @TENHV= N'Tiến Sĩ', @SOGV = @DEM OUTPUT
+SET @TENHVS = N'Tiến Sĩ'
+PRINT N'SỐ GIÁO VIÊN CÓ HỌC VỊ ' + @TENHVS + N' LÀ ' + CAST(@DEM AS CHAR(10))
+
+
+
+--PROC 2.2
+GO
+CREATE PROC FIND_DTB
+    @MSDT CHAR(6),
+    @DTB FLOAT OUTPUT
+AS
+BEGIN
+    IF EXISTS (SELECT MSDT
+    FROM DETAI
+    WHERE MSDT = @MSDT)
+        BEGIN
+        SELECT @DTB = (SELECT AVG(DIEM)
+            FROM
+                (                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                (
+                                        SELECT DIEM, MSDT
+                    FROM GV_HDDT
+                    )
+                UNION
+                    (SELECT DIEM, MSDT
+                    FROM GV_PBDT)
+                UNION
+                    (SELECT DIEM, MSDT
+                    FROM GV_UVDT)) AS BANGDIEM
+            WHERE @MSDT = MSDT)
+        RETURN @DTB
+    END
+ELSE 
+    BEGIN
+        return 0
+    END
+END
+--THUC THI
+go
+DECLARE @TB FLOAT, @MSDTS CHAR(6)
+SET @MSDTS = '97002'
+EXEC FIND_DTB @MSDT = '97002', @DTB=@TB OUTPUT
+PRINT N'Đề tài có MSĐT LÀ ' + @MSDTS + N'có điểm trung bình là: ' + CAST(@TB AS CHAR(4)) 
+
+--PROC 2.3 
+GO
+CREATE PROC FIND_SDTGV
+    @TENGV nvarchar(30),
+    @SODT varchar(10) OUTPUT,
+    @COUNT INT OUTPUT
+AS
+BEGIN
+    IF NOT EXISTS (SELECT TENGV
+    FROM GIAOVIEN
+    WHERE GIAOVIEN.TENGV=@TENGV)
+BEGIN
+        PRINT N'KHÔNG TỒN TẠI GIÁO VIÊN'
+        RETURN 0
+    END 
+ELSE
+BEGIN
+        SET @COUNT = (SELECT COUNT(*)
+        FROM GIAOVIEN
+        WHERE GIAOVIEN.TENGV=@TENGV)
+        SET @SODT = (SELECT SODT
+        FROM GIAOVIEN
+        WHERE @TENGV = GIAOVIEN.TENGV )
+    END
+END
+DROP PROC FIND_SDTGV
+go
+
+--THUC THI
+DECLARE @SODTS VARCHAR(10), @COUNTS INT, @TENGVS NVARCHAR(30)
+SET @TENGVS =N'Chu Tiến '
+EXEC FIND_SDTGV @TENGV = @TENGVS, @SODT = @SODTS OUTPUT, @COUNT = @COUNTS OUTPUT
+PRINT N'Giáo viên ' + @TENGVS + N'có '+ CAST(@COUNTS AS CHAR(8)) + N'trùng tên và có sdt là '+ @SODTS
+-------
+
+--PROC 2.4 
+GO
+CREATE PROC DIEMTB_HD
+    @MSHD INT,
+    @DIEMTB FLOAT OUTPUT
+AS
+BEGIN
+    IF NOT EXISTS (SELECT MSHD
+    FROM HOIDONG
+    WHERE HOIDONG.MSHD=@MSHD)
+BEGIN
+        RETURN 0
+    END
+ELSE 
+BEGIN
+        SELECT @DIEMTB = (SELECT AVG(DIEM)
+            FROM HOIDONG_DT,
+                (                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        (
+                                        SELECT DIEM, MSDT
+                    FROM GV_HDDT
+                    )
+                UNION
+                    (SELECT DIEM, MSDT
+                    FROM GV_PBDT)
+                UNION
+                    (SELECT DIEM, MSDT
+                    FROM GV_UVDT)) AS BANGDIEM
+            WHERE BANGDIEM.MSDT = HOIDONG_DT.MSDT AND MSHD=@MSHD)
+        RETURN @DIEMTB
+    END
+END
+GO
+
+--THUC THI 
+DECLARE @DIEMTBDT FLOAT, @MSHD1 INT
+SET @MSHD1 = '1'
+EXEC DIEMTB_HD @MSHD='1', @DIEMTB=@DIEMTBDT OUTPUT
+PRINT 'DIEM TB CUA MSHD '+ CAST(@MSHD1 AS CHAR(2)) + ' LA ' + CAST(@DIEMTBDT AS CHAR(4))
+
+--PROC 2.5 
+GO
+CREATE PROC IN4_GV
+    @TENGV NVARCHAR(30),
+    @SODTHD INT OUTPUT,
+    @SODTPB INT OUTPUT,
+    @COUNT INT OUTPUT
+AS
+BEGIN
+    IF @TENGV IN (SELECT TENGV
+    FROM GIAOVIEN)
+BEGIN
+        SET @COUNT= (SELECT COUNT(*)
+        FROM GIAOVIEN
+        WHERE GIAOVIEN.TENGV=@TENGV)
+        SET @SODTHD = (SELECT COUNT(*)
+        FROM GIAOVIEN, GV_HDDT
+        WHERE GIAOVIEN.TENGV=@TENGV AND GIAOVIEN.MSGV=GV_HDDT.MSGV)
+        SET @SODTPB = (SELECT COUNT(*)
+        FROM GIAOVIEN, GV_PBDT
+        WHERE GIAOVIEN.TENGV=@TENGV AND GIAOVIEN.MSGV=GV_PBDT.MSGV)
+    END 
+ELSE 
+BEGIN
+        PRINT 'KHONG TIM THAY GIAO VIEN'
+    END
+END
+
+--THUC THI 
+DECLARE @DEM INT, @SODTHDS INT, @SODTPBS INT, @TENGVS NVARCHAR(30)
+SET @TENGVS =N'Chu Tiến'
+EXEC IN4_GV @TENGV=N'TM', @SODTHD = @SODTHDS OUTPUT, @SODTPB = @SODTPBS OUTPUT, @COUNT=@DEM OUTPUT
+PRINT N'Giáo viên: '+ @TENGVS + N'có ' + CAST(@DEM AS CHAR(2)) + N' giáo viên trùng tên, có số đề tài hướng dẫn là: ' 
++ CAST(@SODTHDS AS CHAR(2)) +N', có số đề tài phản biện là: '+ CAST(@SODTPBS AS CHAR(2))
+
+--------------------------------T.R.I.G.G.E.R---------------------------------------------------------------
+
+---TRIGGER 
+---BAI 1
+GO
+CREATE TRIGGER XOA_DT ON DETAI FOR DELETE 
+AS 
+BEGIN
+    IF NOT EXISTS ( SELECT MSDT
+    FROM DETAI)
+BEGIN
+        PRINT 'BANG DETAI KHONG CHUA DU LIEU'
+    END 
+ELSE 
+BEGIN
+        DELETE FROM SV_DETAI WHERE SV_DETAI.MSDT=(SELECT MSDT
+        FROM deleted)
+        DELETE FROM GV_HDDT WHERE GV_HDDT.MSDT=(SELECT MSDT
+        FROM deleted)
+        DELETE FROM GV_PBDT WHERE GV_PBDT.MSDT=(SELECT MSDT
+        FROM deleted)
+        DELETE FROM GV_UVDT WHERE GV_UVDT.MSDT=(SELECT MSDT
+        FROM deleted)
+        DELETE FROM HOIDONG_DT WHERE HOIDONG_DT.MSDT=(SELECT MSDT
+        FROM deleted)
+    END
+END
+--THUC THI
+--BO CHECK CAC CONTRAINT TRUOC KHI DELETE
+        alter table SV_DETAI NOcheck Constraint all
+        alter table GV_HDDT NOcheck Constraint all
+		alter table GV_PBDT nocheck Constraint all
+		alter table GV_UVDT nocheck Constraint all
+		alter table HOIDONG_DT nocheck Constraint ALL
+ --THUCTHI
+DELETE FROM DETAI WHERE MSDT = '97001 '
+--CHECK CAC CONTRAINT 
+        alter table SV_DETAI check Constraint all
+		alter table GV_HDDT check Constraint all
+		alter table GV_PBDT check Constraint all
+		alter table GV_UVDT check Constraint all
+		alter table HOIDONG_DT check Constraint all
+-- Kiểm tra lại trong các bảng --
+SELECT * FROM DETAI
+SELECT * FROM SV_DETAI
+SELECT * FROM GV_HDDT
+SELECT * FROM GV_PBDT
+SELECT * FROM GV_UVDT
+SELECT * FROM HOIDONG_DT
+
+--BAI2
+go
+CREATE TRIGGER SODT_HD ON HOIDONG_DT FOR INSERT, UPDATE
+AS 
+BEGIN
+    IF (SELECT COUNT(*)
+    FROM HOIDONG_DT, INSERTED
+    WHERE HOIDONG_DT.MSHD= INSERTED.MSHD) > 10
+BEGIN
+        PRINT N'THEM THAT BAI'
+        ROLLBACK TRANSACTION
+    END 
+ELSE
+BEGIN
+        PRINT N'THÊM THÀNH CÔNG'
+    END
+END
+
+ALTER TABLE HOIDONG_DT NOCHECK CONSTRAINT ALL
+--thuc thi 
+INSERT INTO HOIDONG_DT
+VALUES('1', '97222', 'Được')
+INSERT INTO HOIDONG_DT
+VALUES('1', '97333', 'Được')
+INSERT INTO HOIDONG_DT
+VALUES('1', '97334', 'Được')
+INSERT INTO HOIDONG_DT
+VALUES('1', '97444', 'Được')
+INSERT INTO HOIDONG_DT
+VALUES('1', '97555', 'Được')
+INSERT INTO HOIDONG_DT
+VALUES('1', '97666', 'Được')
+INSERT INTO HOIDONG_DT
+VALUES('1', '97777', 'Được')
+INSERT INTO HOIDONG_DT
+VALUES('1', '97888', 'Được')
+INSERT INTO HOIDONG_DT
+VALUES('1', '97886', 'Được')
+
+---
+ALTER TABLE HOIDONG_DT CHECK CONSTRAINT ALL
+
+
+--BAI 3
+GO
+CREATE TRIGGER SV_DT ON SV_DETAI FOR INSERT, UPDATE
+AS 
+BEGIN
+    IF (SELECT COUNT(*)
+    FROM SV_DETAI, INSERTED
+    WHERE SV_DETAI.MSDT=INSERTED.MSDT) > 3
+BEGIN
+        PRINT N'THEM THAT BAI'
+        ROLLBACK TRANSACTION
+    END 
+ELSE
+BEGIN
+        PRINT N'THÊM THÀNH CÔNG'
+    END
+END
+
+alter table SV_DETAI NOcheck Constraint all
+--thuc thi
+INSERT INTO SV_DETAI
+VALUES('12314234', '97005 ')
+INSERT INTO SV_DETAI
+VALUES('12314239', '97005 ')
+----
+alter table SV_DETAI check Constraint all
+--BACKUP
+DELETE FROM SV_DETAI WHERE MSSV = '12314234'
+---KIEM TRA
+SELECT * FROM SV_DETAI
+
+
+
+--bai 4
+GO
+CREATE TRIGGER CHECK_HH_HV ON GIAOVIEN
+FOR INSERT, UPDATE
+AS
+BEGIN
+    IF ((SELECT MSHH
+    FROM INSERTED) = (SELECT MSHH
+    FROM HOCHAM
+    WHERE TENHH =N'Phó Giáo Sư'))
+    BEGIN
+        IF (SELECT TENHV
+        FROM INSERTED, GV_HV_CN, HOCVI
+        WHERE INSERTED.MSGV=GV_HV_CN.MSGV AND HOCVI.MSHV=GV_HV_CN.MSHV) = N'Tiến Sĩ'
+    BEGIN
+            PRINT N'THÊM THÀNH CÔNG'
+        END
+    ELSE
+    BEGIN
+            PRINT N'THÊM THẤT BẠI'
+        END
+    END
+END
+
+--thuc thi 
+UPDATE GIAOVIEN SET MSHH = '1' WHERE MSGV='204'
+----KIỂM TRA
+SELECT * FROM GIAOVIEN
+
+
+
+--------------------F.U.N.T.I.O.N------------------------------------------------------
+--BAI 1
+GO
+CREATE FUNCTION DTB_DT_F (@MSDT CHAR(6)) RETURNS FLOAT
+AS
+BEGIN
+    DECLARE @DTB FLOAT
+    SELECT @DTB = AVG(DIEM)
+    FROM (                                                                                                                                                                                                                                                                                                                                SELECT *
+            FROM GV_HDDT
+        UNION
+            SELECT *
+            FROM GV_PBDT
+        UNION
+            SELECT *
+            FROM GV_UVDT) AS DIEMTONGHOP
+    WHERE DIEMTONGHOP.MSDT = @MSDT
+    IF @DTB IS NULL
+       SET @DTB = 0
+    RETURN @DTB
+END
+GO
+DROP FUNCTION DTB_DT_F
+--THUCTHI
+GO
+SELECT dbo.DTB_DT_F (97002 ) AS DT 
+
+GO
+--BAI 2
+go
+CREATE FUNCTION KETQUA (@MSDT CHAR(6)) RETURNS NVARCHAR(20)
+AS
+BEGIN
+    DECLARE @DTB FLOAT, @KETQUA NVARCHAR(20)
+    SELECT @DTB = AVG(DIEM)
+    FROM (                                                                                                                                                                                                                                                                                                                                SELECT *
+            FROM GV_HDDT
+        UNION
+            SELECT *
+            FROM GV_PBDT
+        UNION
+            SELECT *
+            FROM GV_UVDT) AS DIEMTONGHOP
+    WHERE DIEMTONGHOP.MSDT = @MSDT
+    IF @DTB > 5
+    BEGIN
+        SET @KETQUA = N'ĐẠT'
+        RETURN @KETQUA
+    END
+    ELSE
+    BEGIN
+        SET @KETQUA = N'KHÔNG ĐẠT'
+        RETURN @KETQUA
+    END
+    RETURN @KETQUA
+END
+GO
+----THUC THI
+SELECT dbo.KETQUA(97001) AS KQ
+
+--BAI 3
+GO
+CREATE FUNCTION MS_HT (@MSDT CHAR(6)) RETURNS NVARCHAR(30)
+AS
+BEGIN
+    DECLARE @MSSV CHAR(8), @TENSV NVARCHAR(30), @KETQUA NVARCHAR(50)
+    SET @MSSV = (SELECT MSSV
+    FROM SV_DETAI
+    WHERE SV_DETAI.MSDT=@MSDT)
+    SET @TENSV = (SELECT SINHVIEN.TENSV
+    FROM SV_DETAI, SINHVIEN
+    WHERE  SV_DETAI.MSDT=@MSDT AND SINHVIEN.MSSV=SV_DETAI.MSSV)
+    SET @KETQUA = @MSSV +' ' + @TENSV
+    IF @KETQUA IS NOT NULL
+       BEGIN
+        RETURN @KETQUA
+    END 
+       ELSE
+       BEGIN
+        RETURN 0
+    END
+    RETURN @KETQUA
+END
+----thuc thi
+go
+SELECT dbo.MS_HT(97002) AS KQ
+
+-----------------------------C.U.R.S.O.R--------------------------
+--bai 1
+go
+CREATE TABLE DETAI_DIEM
+(
+    MSDT CHAR(6) PRIMARY KEY,
+    DIEMTB FLOAT NOT NULL
+)
+
+DECLARE @DUYET CURSOR, @msdt char(6), @dtb float
+SET @DUYET = CURSOR FOR SELECT MSDT
+FROM DETAI
+OPEN @DUYET
+FETCH NEXT FROM @DUYET INTO @msdt
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    --logic 
+    SELECT @dtb = AVG(DIEM)
+    FROM (                                                                                                                                                                                                                                                                                                                                SELECT *
+            FROM GV_HDDT
+        UNION
+            SELECT *
+            FROM GV_PBDT
+        UNION
+            SELECT *
+            FROM GV_UVDT) AS BANGTONGHOP
+    WHERE BANGTONGHOP.MSDT = @msdt
+    INSERT INTO DETAI_DIEM
+    VALUES(@msdt, @dtb)
+    FETCH NEXT FROM @DUYET INTO @msdt
+END
+CLOSE @DUYET
+
+--kiem tra 
+SELECT *
+FROM DETAI_DIEM
+
+--bai 2
+GO
+CREATE PROC DTB_CUR
+AS
+BEGIN
+    DECLARE @DUYET CURSOR, @msdt char(6), @dtb float
+    SET @DUYET = CURSOR FOR SELECT MSDT
+    FROM DETAI
+    OPEN @DUYET
+    FETCH NEXT FROM @DUYET INTO @msdt
+    WHILE @@FETCH_STATUS = 0
+BEGIN
+        --logic 
+        SELECT @dtb = AVG(DIEM)
+        FROM (                                                                                                                                                                                                                                                                                                                                                                                                                                                                SELECT *
+                FROM GV_HDDT
+            UNION
+                SELECT *
+                FROM GV_PBDT
+            UNION
+                SELECT *
+                FROM GV_UVDT) AS BANGTONGHOP
+        WHERE BANGTONGHOP.MSDT = @msdt
+        INSERT INTO DETAI_DIEM
+        VALUES(@msdt, @dtb)
+        FETCH NEXT FROM @DUYET INTO @msdt
+    END
+    CLOSE @DUYET
+END
+
+
+--THUC THI
+EXEC DTB_CUR
+--kiem tra 
+SELECT *
+FROM DETAI_DIEM
+
+---bai 3
+ALTER TABLE DETAI_DIEM ADD XEPLOAI NVARCHAR(20)
+GO
+DECLARE @xeploai NVARCHAR(20),@MSDT char(6), @DIEMTB FLOAT
+DECLARE avg_cur CURSOR FOR SELECT MSDT, DIEMTB
+FROM DETAI_DIEM
+OPEN avg_cur
+FETCH NEXT FROM avg_cur INTO @MSDT, @DIEMTB
+WHILE @@FETCH_STATUS=0
+BEGIN
+    IF @DIEMTB BETWEEN 9 AND 10 BEGIN
+        SET @xeploai = N'Xuất sắc'
+    END
+    IF @DIEMTB BETWEEN 8 AND 9 BEGIN
+        SET @xeploai = N'Giỏi'
+    END
+    IF @DIEMTB BETWEEN 7 AND 8 BEGIN
+        SET @xeploai = N'Khá'
+    END
+    IF @DIEMTB BETWEEN 5 AND 7 BEGIN
+        SET @xeploai = N'Trung bình'
+    END 
+    IF @DIEMTB < 5
+     BEGIN
+        SET @xeploai = N'yếu'
+    END
+    IF @xeploai IS NOT NULL
+    BEGIN
+        UPDATE DETAI_DIEM SET XEPLOAI=@xeploai WHERE DETAI_DIEM.MSDT= @MSDT
+    END
+    FETCH NEXT FROM avg_cur INTO @MSDT,@DIEMTB
+END
+CLOSE avg_cur
+DEALLOCATE avg_cur
+--KIEM TRA 
+SELECT * FROM DETAI_DIEM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
